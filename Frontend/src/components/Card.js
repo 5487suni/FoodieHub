@@ -3,7 +3,7 @@ import React from 'react'
 export default function Card() {
     return (
         <div>
-            <div>
+            <div >
                 <div className="card mt-3" style={{ "width": "18rem", "maxHeight": "360px" }}>
                     <img src="https://media.istockphoto.com/photos/chilli-paneer-tikka-or-paneer-kabab-picture-id629423010?k=20&m=629423010&s=612x612&w=0&h=X-OBIncHWjNFqxGfQuQHwrYHi2GcUw-jn7kqqZpHSw8=" className="card-img-top" alt="..." />
                     <div className="card-body">
