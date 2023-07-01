@@ -5,16 +5,16 @@ const port = 5000
 const mongoDB = require('./db')
 
 mongoDB();
-const dotenv = require("dotenv");
-dotenv.config();
-mongoose.connect(process.env.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    // useFindAndModify: false,
-    // useCreateIndex: true,   
-})
-.then(() => console.log("MongoDB connected!"))
-.catch(err => console.log(err));
+// const dotenv = require("dotenv");
+// dotenv.config();
+// mongoose.connect(process.env.mongoURI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     // useFindAndModify: false,
+//     // useCreateIndex: true,   
+// })
+// .then(() => console.log("MongoDB connected!"))
+// .catch(err => console.log(err));
 
 
 app.get('/', (req, res) => {

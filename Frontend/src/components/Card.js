@@ -19,7 +19,7 @@ export default function Card() {
                             </select>
                             <select className='m-2 h-100 bg-success rounded'>
                                 <option value="half">half</option>
-                                <option value="full">Full</option>
+                                <option value="full">full</option>
                             </select>
                             <div className='d-inline h-100 fs-5'>
                                 Total Price
