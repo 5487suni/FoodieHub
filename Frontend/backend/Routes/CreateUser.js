@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
- 
 const bcrypt = require("bcryptjs")
-
 const { body, validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
+const jwtSecret= "MynameisMotilalNehruNational@%^%"
+
 router.post("/createuser", [
 
     body('email').isEmail(),
@@ -44,15 +45,21 @@ router.post("/loginuser", [
         let email = req.body.email
 
         try {
-            let userdata = await User.findOne({ email })
-            if (!userdata) {
+            let userData = await User.findOne({ email })
+            if (!userData) {
                 return res.status(400).json({ errors: "Incorrect credentials, please try again" });
             }
-
-            if (req.body.password !== userdata.password) {
+            const pwdCompare = await bcrypt.compare(req.body.password, userData.password)
+            if (!pwdCompare) {
                 return res.status(400).json({ errors: "Password is incorrect, please try again" })
             }
-            return res.json({ success: true })
+            const data = {
+                user:{
+                    id:userData.id
+                }
+            }
+            const authToken = jwt.sign(data, jwtSecret)
+            return res.json({ success: true, authToken:authToken })
         } catch (error) {
             console.log(error)
             res.json({ success: false })
