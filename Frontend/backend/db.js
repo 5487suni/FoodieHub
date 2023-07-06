@@ -16,7 +16,7 @@ const mongoDB = async () => {
                     if (err) console.log(err);
                     else {
                         global.food_items = data
-                        console.log(global.food_items)
+                        // console.log(global.food_items)
                     }
                 })
             }   
