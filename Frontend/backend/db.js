@@ -14,7 +14,10 @@ const mongoDB = async () => {
                 const fetched_data = await mongoose.connection.db.collection('food_items');
                 fetched_data.find({}).toArray(function (err, data) {
                     if (err) console.log(err);
-                    else console.log(data);
+                    else {
+                        global.food_items = data
+                        console.log(global.food_items)
+                    }
                 })
             }   
         }
