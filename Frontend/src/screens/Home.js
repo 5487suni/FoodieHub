@@ -14,11 +14,11 @@ export default function Home() {
         let response = await fetch("http://localhost:5000/api/auth/foodData", {
           // credentials: 'include',
           // Origin:"http://localhost:3000/login",
+          mode:'no-cors',
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
-          }
-    
+          },
         });
         response = await response.json()
         // console.log(response[1][0].CategoryName)
