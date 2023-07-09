@@ -18,7 +18,10 @@ export default function Signup() {
             body: JSON.stringify({name:credentials.name, email:credentials.email, password:credentials.password, location:credentials.geolocation})
         })
     const json = await response.json()
-    console.log(json)
+    if(json.success){
+        localStorage.setItem("authToken")
+        navigate("/login")
+    }
 
     if(!json.success){
         alert("Enter valid credentials")
