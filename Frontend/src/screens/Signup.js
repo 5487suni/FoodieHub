@@ -19,7 +19,7 @@ export default function Signup() {
         })
     const json = await response.json()
     if(json.success){
-        localStorage.setItem("authToken")
+        localStorage.setItem('token',json.authToken)
         navigate("/login")
     }
 
